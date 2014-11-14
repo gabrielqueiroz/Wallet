@@ -56,6 +56,8 @@ public class homeScreen extends ListActivity {
                                 int position, long id)
         {
             Intent myIntent = new Intent(homeScreen.this, walletItem.class);
+            String value = String.valueOf(position)+" Wallet Item";
+            myIntent.putExtra("key", value);
             homeScreen.this.startActivity(myIntent);
         }
     };

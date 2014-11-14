@@ -1,9 +1,14 @@
 package project.android.csci4661.com.wallet;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 public class walletItem extends Activity {
@@ -11,8 +16,21 @@ public class walletItem extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle extras = getIntent().getExtras();
+        String value="";
+        if(extras !=null)
+        {
+            value = extras.getString("key");
+        }
+
         setContentView(R.layout.activity_wallet_item);
+
+        TextView textview = (TextView) findViewById(R.id.textTest);
+        textview.setText(value);
+
     }
+
+
 
 
     @Override
@@ -33,4 +51,6 @@ public class walletItem extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }
